@@ -1,0 +1,34 @@
+server:
+  port: 8081
+  shutdown: graceful
+
+spring:
+  application:
+    name: light-consumer-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: light-common.yaml
+            refresh: false
+            group: DEFAULT_GROUP
+          - data-id: light-rocketmq.yaml
+            refresh: false
+            group: DEFAULT_GROUP
+      discovery:
+        metadata:
+          light.mode: ${light.mode:}
+          light.env: ${spring.profiles.active:}
+          light.version: '@light-service.version@'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

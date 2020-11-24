@@ -21,3 +21,35 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# idea config file
+*.iml
+**/*.iml
+
+.idea
+**/.idea
+
+# vscode config
+.vscode
+**/.vscode
+
+# project file
+.project
+**/.project
+
+# maven compile target directory
+
+target
+**/target
+
+# maven config directory
+.mvn
+**/.mvn
+
+# eclipse settings directory
+.settings
+**/.settings
+
+# eclipse classpath file
+.classpath
+**/.classpath

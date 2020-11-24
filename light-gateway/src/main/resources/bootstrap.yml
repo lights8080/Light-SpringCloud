@@ -1,0 +1,48 @@
+server:
+  port: 8888
+  shutdown: graceful
+
+spring:
+  application:
+    name: light-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: light-common.yaml
+            refresh: false
+            group: DEFAULT_GROUP
+          - data-id: light-redis.yaml
+            refresh: false
+            group: DEFAULT_GROUP
+      discovery:
+        metadata:
+          light.mode: ${light.mode:}
+          light.env: ${spring.profiles.active:}
+          light.version: '@light-gateway.version@'
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 60s
+      enabled: true
+      actuator:
+        verbose:
+          enabled: false
+      discovery:
+        locator:
+          enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    gateway:
+      enabled: true

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.light</groupId>
+        <artifactId>light-service</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.light</groupId>
+    <artifactId>light-producer</artifactId>
+    <version>1.0.0</version>
+    <name>light-producer</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>light-producer-dto</module>
+        <module>light-producer-api</module>
+        <module>light-producer-service</module>
+    </modules>
+
+    <properties>
+        <light-dto.version>1.0.0</light-dto.version>
+        <light-api.version>1.0.0</light-api.version>
+        <light-service.version>1.0.0</light-service.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
